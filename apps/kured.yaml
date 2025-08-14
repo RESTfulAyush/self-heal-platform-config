@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kured
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://weaveworks.github.io/kured
+    chart: kured
+    targetRevision: 5.3.0
+    helm:
+      values: |
+        startTime: "0:00"
+        endTime: "23:59"
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: kube-system
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

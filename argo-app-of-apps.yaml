@@ -8,6 +8,7 @@ spec:
   source:
     repoURL: "https://github.com/RESTfulAyush/self-heal-platform-config"
     targetRevision: HEAD
+    path: apps/kured.yaml
     path: apps
   destination:
     server: "https://kubernetes.default.svc"

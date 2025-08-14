@@ -1,0 +1,4 @@
+configuration:
+  startTime: "0:00"
+  endTime: "23:59"
+  rebootSentinelCommand: "/usr/bin/needs-restarting -r || echo 'no reboot needed'"
