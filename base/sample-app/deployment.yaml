@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: sample-app
 spec:
-  replicas: 1
+  replicas: 2 # <-- increase to 2 for resilience
   selector:
     matchLabels:
       app: sample-app
@@ -23,9 +23,13 @@ spec:
               port: 80
             initialDelaySeconds: 5
             periodSeconds: 10
+            failureThreshold: 3
           readinessProbe:
             httpGet:
               path: /
               port: 80
             initialDelaySeconds: 5
             periodSeconds: 5
+            failureThreshold: 2
+          # Ensure restart policy
+      restartPolicy: Always
