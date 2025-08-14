@@ -1,0 +1,17 @@
+alertmanager:
+  enabled: true
+
+server:
+  global:
+    scrape_interval: 15s
+  persistentVolume:
+    enabled: false
+
+pushgateway:
+  enabled: false
+
+kubeStateMetrics:
+  enabled: true
+
+nodeExporter:
+  enabled: true
