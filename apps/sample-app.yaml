@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: "https://github.com/RESTfulAyush/self-heal-platform-config"
     targetRevision: HEAD
-    path: base/sample-app
+    path: charts/generic-app
   destination:
     server: "https://kubernetes.default.svc"
     namespace: default
