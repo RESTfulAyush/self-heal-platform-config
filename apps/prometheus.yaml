@@ -6,14 +6,13 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: "https://prometheus-community.github.io/helm-charts"
-    chart: prometheus
-    targetRevision: 25.25.0
+    repoURL: https://github.com/your-org/your-repo.git
+    targetRevision: HEAD
+    path: base/prometheus
     helm:
       releaseName: prometheus
-      values: |
-        alertmanager:
-          enabled: true
+      valueFiles:
+        - values.yaml
   destination:
     server: "https://kubernetes.default.svc"
     namespace: monitoring

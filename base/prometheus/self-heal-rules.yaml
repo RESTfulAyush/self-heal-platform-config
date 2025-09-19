@@ -1,0 +1,17 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: self-heal-rules
+  namespace: monitoring
+spec:
+  groups:
+    - name: self-heal.rules
+      rules:
+        - alert: PodRestartingTooFrequently
+          expr: rate(kube_pod_container_status_restarts_total[5m]) > 3
+          for: 2m
+          labels:
+            severity: warning
+          annotations:
+            summary: "Pod {{ $labels.pod }} restarting too often"
+            description: "Container in pod {{ $labels.pod }} (namespace {{ $labels.namespace }}) restarted >3 times in 5m."
