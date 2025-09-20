@@ -14,19 +14,19 @@ spec:
     spec:
       containers:
         - name: react-app
-          image: ghcr.io/restfulayush/react-app:latest
+          image: ghcr.io/restfulayush/react-app:v2
           ports:
-            - containerPort: 3000
+            - containerPort: 5000
           readinessProbe:
             httpGet:
               path: /
-              port: 3000
+              port: 5000
             initialDelaySeconds: 5
             periodSeconds: 10
           livenessProbe:
             httpGet:
               path: /
-              port: 3000
+              port: 5000
             initialDelaySeconds: 15
             periodSeconds: 20
       imagePullSecrets:
