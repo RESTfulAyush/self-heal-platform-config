@@ -30,4 +30,4 @@ spec:
             initialDelaySeconds: 15
             periodSeconds: 20
       imagePullSecrets:
-        - name: github-container-registry
+        - name: ghcr-secret
